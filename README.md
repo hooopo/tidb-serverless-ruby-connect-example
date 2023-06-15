@@ -1,6 +1,6 @@
 # TiDB Serverless Ruby Connect Example
 
-In this example, we will demonstrate how to connect to a TiDB Serverless instance using Ruby and [mysql2](https://github.com/brianmario/mysql2) gem.
+In this example, we will demonstrate how to connect to a TiDB Serverless instance using Ruby and [mysql2](https://github.com/brianmario/mysql2) gem and rails.
 
 First, please make sure you have Ruby and the mysql2 gem installed.
 
@@ -102,7 +102,9 @@ development:
   database: your_database_name
 ```
 
-Also, it is best practice to set `sslca` to `nil` in the `config/database.yml` file. More information about the ca certificate path to connect to TiDB Serverless can be found [here](https://docs.pingcap.com/tidbcloud/secure-connections-to-serverless-tier-clusters)
+Make sure `ssl_mode` is set to `verify_identity` to enable SSL connections. Also, it is best practice to set `sslca` to `nil` or ignore it in the `config/database.yml` file. 
+
+More information about the ca certificate path to connect to TiDB Serverless can be found [here](https://docs.pingcap.com/tidbcloud/secure-connections-to-serverless-tier-clusters)
 
 ```yaml
 
