@@ -35,7 +35,7 @@ client = Mysql2::Client.new(
   username: USERNAME,
   password: PASSWORD,
   database: DATABASE,
-  sslverify: true
+  ssl_mode: :verify_identity
 )
 
 puts "Connected successfully."
@@ -59,7 +59,7 @@ Closing the client connection...
 Connection closed.
 ```
 
-It's essential to note that the best practice for establishing SSL connections using the mysql2 gem is to set `sslverify` to `true` and set `sslca` to `nil`. By default, the mysql2 gem will search for existing CA certificates in a particular order until a file is discovered.
+It's essential to note that the best practice for establishing SSL connections using the mysql2 gem is to set `ssl_mode` to `verify_identity` and set `sslca` to `nil`. By default, the mysql2 gem will search for existing CA certificates in a particular order until a file is discovered.
 
 1. /etc/ssl/certs/ca-certificates.crt # Debian / Ubuntu / Gentoo / Arch / Slackware
 2. /etc/pki/tls/certs/ca-bundle.crt # RedHat / Fedora / CentOS / Mageia / Vercel / Netlify
@@ -75,7 +75,7 @@ client = Mysql2::Client.new(
   username: USERNAME,
   password: PASSWORD,
   database: DATABASE,
-  sslverify: true,
+  ssl_mode: :verify_identity,
   sslca: '/path/to/ca-certificates.crt'
 )
 ```

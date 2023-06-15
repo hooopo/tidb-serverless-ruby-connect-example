@@ -14,8 +14,9 @@ client = Mysql2::Client.new(
   username: USERNAME,
   password: PASSWORD,
   database: DATABASE,
-  sslverify: true
+  ssl_mode: :verify_identity
 )
+
 puts "Connected successfully."
 
 resp = client.query('select version()')
