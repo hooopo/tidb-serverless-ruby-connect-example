@@ -8,6 +8,7 @@ First, please make sure you have Ruby and the mysql2 gem installed.
 $ ruby -v
 $ bundle install
 ```
+### mysql2 
 
 Then, you can run the example code to connect to a TiDB Serverless instance using mysql2 gem.
 
@@ -76,6 +77,29 @@ client = Mysql2::Client.new(
   sslverify: true,
   sslca: '/path/to/ca-certificates.crt'
 )
+```
+
+### Rails
+
+If you are using Rails, you can configure the database connection in `config/database.yml` as follows:
+
+```yaml
+# Install the MySQL driver
+#   gem install mysql2
+#
+# Ensure the MySQL gem is defined in your Gemfile
+#   gem "mysql2"
+
+default: &default
+  adapter: mysql2
+  encoding: utf8mb4
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  url: <%= ENV['DATABASE_URL'] %>
+  ssl_mode: :verify_identity
+
+development:
+  <<: *default
+  database: your_database_name
 ```
 
 ## Need help?
