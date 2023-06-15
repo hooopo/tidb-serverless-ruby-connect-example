@@ -102,6 +102,10 @@ development:
   database: your_database_name
 ```
 
+Also, it is best practice to set `sslca` to `nil` in the `config/database.yml` file. More information about the ca certificate path to connect to TiDB Serverless can be found [here](https://docs.pingcap.com/tidbcloud/secure-connections-to-serverless-tier-clusters)
+
+```yaml
+
 ## Need help?
 
 If you have any questions about TiDB Serverless, please join the [TiDB community](https://ask.pingcap.com/) and feel free to ask for help.
