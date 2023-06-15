@@ -2,13 +2,14 @@
 
 In this example, we will demonstrate how to connect to a TiDB Serverless instance using Ruby and [mysql2](https://github.com/brianmario/mysql2) gem and rails.
 
+### mysql2 
+
 First, please make sure you have Ruby and the mysql2 gem installed.
 
 ```bash
 $ ruby -v
 $ bundle install
 ```
-### mysql2 
 
 Then, you can run the example code to connect to a TiDB Serverless instance using mysql2 gem.
 
@@ -60,10 +61,10 @@ Connection closed.
 
 It's essential to note that the best practice for establishing SSL connections using the mysql2 gem is to set `sslverify` to `true` and set `sslca` to `nil`. By default, the mysql2 gem will search for existing CA certificates in a particular order until a file is discovered.
 
-* /etc/ssl/certs/ca-certificates.crt # Debian / Ubuntu / Gentoo / Arch / Slackware
-* /etc/pki/tls/certs/ca-bundle.crt # RedHat / Fedora / CentOS / Mageia / Vercel / Netlify
-* /etc/ssl/ca-bundle.pem # OpenSUSE
-* /etc/ssl/cert.pem # Alpine (docker container)
+1. /etc/ssl/certs/ca-certificates.crt # Debian / Ubuntu / Gentoo / Arch / Slackware
+2. /etc/pki/tls/certs/ca-bundle.crt # RedHat / Fedora / CentOS / Mageia / Vercel / Netlify
+3. /etc/ssl/ca-bundle.pem # OpenSUSE
+4. /etc/ssl/cert.pem # MacOS / Alpine (docker container)
 
 While it is possible to specify the CA certificate path manually, this approach may cause significant inconvenience in multi-environment deployment scenarios, as different machines and environments may store the CA certificate in varying locations. Therefore, setting `sslca` to `nil` is recommended for flexibility and ease of deployment across different environments.
 
