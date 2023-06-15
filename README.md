@@ -107,7 +107,6 @@ Make sure `ssl_mode` is set to `verify_identity` to enable SSL connections. Also
 
 More information about the ca certificate path to connect to TiDB Serverless can be found [here](https://docs.pingcap.com/tidbcloud/secure-connections-to-serverless-tier-clusters)
 
-```yaml
 
 ## Need help?
 
