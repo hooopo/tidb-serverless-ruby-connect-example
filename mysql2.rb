@@ -1,17 +1,5 @@
 # Import the MySQL2 library
 require 'mysql2'
-require 'uri'
-
-# Get TiDB Serverless credentials from environment variables
-
-if ENV['DATABASE_URL']
-  uri = URI.parse(ENV['DATABASE_URL'])
-  ENV['TIDB_HOST'] = uri.host
-  ENV['TIDB_PORT'] = uri.port.to_s
-  ENV['TIDB_USERNAME'] = uri.user
-  ENV['TIDB_PASSWORD'] = uri.password
-  ENV['TIDB_DATABASE'] = uri.path[1..-1]
-end
 
 HOST = ENV['TIDB_HOST']
 PORT = ENV['TIDB_PORT']
